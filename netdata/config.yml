@@ -1,17 +1,73 @@
 receivers:
   hostmetrics:
-    collection_interval: 5s
+    collection_interval: 10s
     scrapers:
-      cpu:
-        metrics:
-          system.cpu.frequency:
-            enabled: true
-          system.cpu.logical.count:
-            enabled: true
-          system.cpu.physical.count:
-            enabled: true
-          system.cpu.utilization:
-            enabled: true
+      # cpu:
+      #   metrics:
+      #     system.cpu.frequency:
+      #       enabled: true
+      #     system.cpu.logical.count:
+      #       enabled: true
+      #     system.cpu.physical.count:
+      #       enabled: true
+      #     system.cpu.utilization:
+      #       enabled: true
+      # disk:
+      # filesystem:
+      #   metrics:
+      #     system.filesystem.utilization:
+      #       enabled: true
+      load:
+      # memory:
+      #   metrics:
+      #     system.linux.memory.available:
+      #       enabled: true
+      #     system.memory.limit:
+      #       enabled: true
+      #     system.memory.utilization:
+      #       enabled: true
+      # network:
+      #   metrics:
+      #     system.network.conntrack.count:
+      #       enabled: true
+      #     system.network.conntrack.max:
+      #       enabled: true
+      # paging:
+      #   metrics:
+      #     system.paging.utilization:
+      #       enabled: true
+      # processes:
+      # process:
+      #   metrics:
+      #     process.context_switches:
+      #       enabled: true
+      #     process.cpu.utilization:
+      #       enabled: true
+      #     process.disk.operations:
+      #       enabled: true
+      #     process.memory.utilization:
+      #       enabled: true
+      #     process.open_file_descriptors:
+      #       enabled: true
+      #     process.paging.faults:
+      #       enabled: true
+      #     process.signals_pending:
+      #       enabled: true
+      #     process.threads:
+      #       enabled: true
+  filestats:
+    collection_interval: 10s
+    include: "/home/vk/opt/otel/netdata/var/**"
+    metrics:
+      file.atime:
+        enabled: true
+      file.count:
+        enabled: true
+      file.ctime:
+        enabled: true
+    resource_attributes:
+      file.path:
+        enabled: true
 
 exporters:
   otlp:
