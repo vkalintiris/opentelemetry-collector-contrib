@@ -13,10 +13,10 @@ receivers:
       #     system.cpu.utilization:
       #       enabled: true
       # disk:
-      # filesystem:
-      #   metrics:
-      #     system.filesystem.utilization:
-      #       enabled: true
+      filesystem:
+        metrics:
+          system.filesystem.utilization:
+            enabled: true
       # load:
       # memory:
       #   metrics:
@@ -26,12 +26,12 @@ receivers:
       #       enabled: true
       #     system.memory.utilization:
       #       enabled: true
-      network:
-        metrics:
-          system.network.conntrack.count:
-            enabled: true
-          system.network.conntrack.max:
-            enabled: true
+      # network:
+      #   metrics:
+      #     system.network.conntrack.count:
+      #       enabled: true
+      #     system.network.conntrack.max:
+      #       enabled: true
       # paging:
       #   metrics:
       #     system.paging.utilization:
@@ -71,7 +71,7 @@ receivers:
 
 exporters:
   otlp:
-    endpoint: ::1:4317
+    endpoint: localhost:20001
     tls:
       insecure: true
   file:
