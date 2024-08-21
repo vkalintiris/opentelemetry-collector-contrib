@@ -17,21 +17,21 @@ receivers:
       #   metrics:
       #     system.filesystem.utilization:
       #       enabled: true
-      load:
+      # load:
       # memory:
       #   metrics:
       #     system.linux.memory.available:
-      #       enabled: true
+      #       enabled: false
       #     system.memory.limit:
       #       enabled: true
       #     system.memory.utilization:
       #       enabled: true
-      # network:
-      #   metrics:
-      #     system.network.conntrack.count:
-      #       enabled: true
-      #     system.network.conntrack.max:
-      #       enabled: true
+      network:
+        metrics:
+          system.network.conntrack.count:
+            enabled: true
+          system.network.conntrack.max:
+            enabled: true
       # paging:
       #   metrics:
       #     system.paging.utilization:
@@ -40,7 +40,7 @@ receivers:
       # process:
       #   metrics:
       #     process.context_switches:
-      #       enabled: true
+      #       enabled: false
       #     process.cpu.utilization:
       #       enabled: true
       #     process.disk.operations:
@@ -48,11 +48,11 @@ receivers:
       #     process.memory.utilization:
       #       enabled: true
       #     process.open_file_descriptors:
-      #       enabled: true
+      #       enabled: false
       #     process.paging.faults:
-      #       enabled: true
+      #       enabled: false
       #     process.signals_pending:
-      #       enabled: true
+      #       enabled: false
       #     process.threads:
       #       enabled: true
   filestats:
@@ -71,7 +71,7 @@ receivers:
 
 exporters:
   otlp:
-    endpoint: localhost:4317
+    endpoint: ::1:4317
     tls:
       insecure: true
   file:
